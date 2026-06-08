@@ -1,142 +1,277 @@
-.page {
-  --background: #fafafa;
-  --foreground: #fff;
+/* src/app/page.module.css */
 
-  --text-primary: #000;
-  --text-secondary: #666;
+.pageWrapper {
+  min-height: 100vh;
+  background-color: #f8fafc; 
+  padding: 0 0 60px 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
 
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-  --button-secondary-border: #ebebeb;
+/* 🧠 PSYCHOLOGICAL HERO SECTION */
+.heroSection {
+  background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 4px solid #4338ca;
+}
 
+.mottoBadge {
+  background: rgba(99, 102, 241, 0.2);
+  color: #a5b4fc;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
+  margin-bottom: 20px;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.heroSection h1 {
+  font-size: 2.75rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin: 0 auto 16px auto;
+  max-width: 850px;
+  line-height: 1.2;
+}
+
+.heroSection p {
+  font-size: 1.2rem;
+  color: #94a3b8;
+  max-width: 680px;
+  margin: 0 auto 30px auto;
+  line-height: 1.6;
+}
+
+/* 📊 TRICK THE MIND: LIVE DATA TICKER BAR */
+.liveTickerBar {
+  background: #ffffff;
+  border-y: 1px solid #e2e8f0;
+  padding: 14px 20px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  margin-bottom: 40px;
+}
+
+.tickerContainer {
+  max-width: 1250px;
+  margin: 0 auto;
   display: flex;
-  flex: 1;
-  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
-  font-family: var(--font-geist-sans);
-  background-color: var(--background);
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
-.main {
+.tickerItem {
   display: flex;
-  flex: 1;
-  width: 100%;
-  max-width: 800px;
-  flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  color: #334155;
+  font-weight: 600;
+}
+
+.liveDot {
+  width: 8px;
+  height: 8px;
+  background-color: #ef4444;
+  border-radius: 50%;
+  animation: blink 1.5s infinite;
+}
+
+.tickerNumber {
+  color: #4338ca;
+  font-weight: 800;
+}
+
+/* CONTENT LAYOUT */
+.container {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.boardTitle {
+  font-size: 1.5rem;
+  color: #1e3a8a;
+  margin-bottom: 24px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
   justify-content: space-between;
-  background-color: var(--foreground);
-  padding: 120px 60px;
 }
 
-.intro {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
+.jobList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
   gap: 24px;
 }
 
-.intro h1 {
-  max-width: 320px;
-  font-size: 40px;
+.jobCard, .adJobCard {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: all 0.2s ease;
+}
+
+.jobCard:hover {
+  border-color: #4338ca;
+  box-shadow: 0 10px 25px rgba(67, 56, 202, 0.06);
+  transform: translateY(-4px);
+}
+
+.jobHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.jobTitle {
+  font-size: 1.15rem;
+  color: #1e3a8a;
+  margin: 0 0 6px 0;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.companyName {
+  font-size: 0.9rem;
+  color: #64748b;
   font-weight: 600;
-  line-height: 48px;
-  letter-spacing: -2.4px;
-  text-wrap: balance;
-  color: var(--text-primary);
-}
-
-.intro p {
-  max-width: 440px;
-  font-size: 18px;
-  line-height: 32px;
-  text-wrap: balance;
-  color: var(--text-secondary);
-}
-
-.intro a {
-  font-weight: 500;
-  color: var(--text-primary);
-}
-
-.ctas {
   display: flex;
-  flex-direction: row;
-  width: 100%;
-  max-width: 440px;
-  gap: 16px;
-  font-size: 14px;
-}
-
-.ctas a {
-  display: flex;
-  justify-content: center;
   align-items: center;
-  height: 40px;
-  padding: 0 16px;
-  border-radius: 128px;
-  border: 1px solid transparent;
-  transition: 0.2s;
-  cursor: pointer;
-  width: fit-content;
-  font-weight: 500;
+  gap: 4px;
 }
 
-a.primary {
-  background: var(--text-primary);
-  color: var(--background);
-  gap: 8px;
+.salary {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #059669;
+  background: #d1fae5;
+  padding: 4px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
 }
 
-a.secondary {
-  border-color: var(--button-secondary-border);
+.tagContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 20px;
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
+.tag {
+  background-color: #f1f5f9;
+  color: #475569;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* 💰 AD MONETIZATION DESIGN */
+.adLabel {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: #94a3b8;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.adHeroBanner {
+  max-width: 728px;
+  margin: 30px auto 0 auto;
+}
+
+.adPlaceholder {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+  font-size: 0.85rem;
+}
+
+.adJobCard {
+  border: 2px dashed #cbd5e1;
+  background: #f8fafc;
+}
+
+.adJobContent h3 {
+  color: #1e3a8a;
+  margin: 0 0 8px 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.adJobContent p {
+  color: #475569;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.adJobButton {
+  background: #4338ca;
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-top: auto;
+}
+
+@keyframes blink {
+  0% { opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+
+@media (max-width: 1024px) {
+  .jobList { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .jobList { grid-template-columns: 1fr; }
+  .heroSection h1 { font-size: 2rem; }
+}
+
+/* Optimized Mobile Layout Breakpoint for Homepage Grid */
+@media (max-width: 850px) {
+  .heroSection {
+    padding: 60px 16px; /* Reduced padding to save valuable vertical screen space */
   }
 
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
-}
-
-@media (max-width: 600px) {
-  .main {
-    padding: 48px 24px;
+  .heroSection h1 {
+    font-size: 1.85rem; /* Highly readable heading that doesn't push down important content */
   }
 
-  .intro {
+  .tickerContainer {
+    flex-direction: column; /* Stack statistics vertically instead of squishing them */
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .jobList {
+    grid-template-columns: 1fr; /* Force layout to exactly 1 single column card stack */
     gap: 16px;
-  }
-
-  .intro h1 {
-    font-size: 32px;
-    line-height: 40px;
-    letter-spacing: -1.92px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
-
-  .page {
-    --background: #000;
-    --foreground: #000;
-
-    --text-primary: #ededed;
-    --text-secondary: #999;
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-    --button-secondary-border: #1a1a1a;
   }
 }

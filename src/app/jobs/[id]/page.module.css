@@ -1,0 +1,157 @@
+/* src/app/jobs/[id]/page.module.css */
+.pageWrapper {
+  min-height: calc(100vh - 70px); /* Accounts for Navbar height */
+  background-color: #f8fafc; /* Soft grey background */
+  padding: 40px 20px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #4338ca; /* Indigo */
+  text-decoration: none;
+  margin-bottom: 24px;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.backLink:hover {
+  color: #1e3a8a; /* Deep Navy hover */
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.header {
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: 2.25rem;
+  color: #1e3a8a; /* Deep Navy */
+  margin: 0 0 12px 0;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.company {
+  font-size: 1.25rem;
+  color: #475569; /* Slate */
+  font-weight: 600;
+  margin: 0 0 24px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.metaGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  background-color: #eef2ff; /* Very light indigo */
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #e0e7ff;
+}
+
+.metaItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.metaLabel {
+  font-size: 0.8rem;
+  color: #6366f1; /* Bright Indigo */
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 4px;
+  letter-spacing: 0.5px;
+}
+
+.metaValue {
+  font-size: 1.1rem;
+  color: #1e3a8a;
+  font-weight: 600;
+}
+
+.section {
+  margin-top: 32px;
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
+  color: #1e3a8a;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.description {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #334155;
+  white-space: pre-wrap;
+}
+
+.tagContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.tag {
+  background-color: #f1f5f9;
+  color: #475569;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.actionArea {
+  margin-top: 40px;
+  text-align: center;
+  padding-top: 32px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.applyButton {
+  background-color: #1e3a8a; /* Deep Navy */
+  color: white;
+  border: none;
+  padding: 16px 40px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.2);
+}
+
+.applyButton:hover {
+  background-color: #1e40af;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(30, 58, 138, 0.3);
+}
+
+.notFound {
+  text-align: center;
+  padding: 100px 20px;
+  color: #475569;
+}

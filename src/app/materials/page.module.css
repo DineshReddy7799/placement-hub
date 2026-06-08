@@ -1,0 +1,186 @@
+/* src/app/materials/page.module.css */
+
+.pageWrapper {
+  min-height: 100vh;
+  background-color: #f8fafc;
+  padding: 24px 16px;
+}
+
+.container {
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 2rem;
+  color: #1e3a8a;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.trustStatement {
+  font-size: 1rem;
+  color: #1e3a8a;
+  background: #eef2ff;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border-left: 4px solid #4338ca;
+  margin: 16px 0;
+  line-height: 1.5;
+}
+
+/* Main Layout Grid */
+.mainLayout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 32px;
+  margin-top: 24px;
+}
+
+.sidebar {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+  height: fit-content;
+}
+
+.filterHeader {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 8px;
+}
+
+.filterSection {
+  margin-bottom: 24px;
+}
+
+.filterTitle {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: #64748b;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  color: #334155;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.checkboxLabel input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #4338ca;
+}
+
+/* Content Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.docTitle {
+  font-size: 1.1rem;
+  color: #1e3a8a;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+}
+
+.subject {
+  font-size: 0.85rem;
+  color: #64748b;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.btnDownload {
+  display: block;
+  background: #1e3a8a;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-top: auto;
+  transition: background 0.2s;
+}
+
+.btnDownload:hover {
+  background: #4338ca;
+}
+
+/* Ad Placements */
+.adPlaceholder {
+  background: #f1f5f9;
+  border: 2px dashed #cbd5e1;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  font-size: 0.85rem;
+  margin-top: 12px;
+}
+
+.adCard {
+  border: 2px dashed #cbd5e1;
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+/* ⚡ HIGHLY EFFECTIVE MOBILE RESPONSIVENESS OVERRIDES */
+@media (max-width: 900px) {
+  .mainLayout {
+    grid-template-columns: 1fr; /* Drop desktop grid into single layout */
+    gap: 20px;
+  }
+
+  /* Transform vertical sidebar into an elegant horizontal action dashboard */
+  .sidebar {
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
+
+  .filterSection {
+    margin-bottom: 16px;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px;
+  }
+
+  /* Make checkboxes arrange horizontally with native scrolling capability */
+  .checkboxLabel {
+    display: inline-flex;
+    margin-right: 16px;
+    margin-bottom: 4px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr; /* Force core material cards into beautiful full-width items */
+    gap: 16px;
+  }
+}

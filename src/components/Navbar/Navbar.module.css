@@ -1,0 +1,100 @@
+/* src/components/Navbar/Navbar.module.css */
+
+.navbar {
+  height: 70px;
+  background-color: #ffffff;
+  border-bottom: 2px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.logoArea {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #1e3a8a;
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+/* 📱 Mobile Menu Toggle Button (Hidden by default on Desktop) */
+.menuToggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #1e3a8a;
+  cursor: pointer;
+  padding: 4px;
+}
+
+/* Desktop Navigation Links Container */
+.linkContainer {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.navLink {
+  text-decoration: none;
+  color: #475569;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+  padding: 6px 0;
+  border-bottom: 2px solid transparent;
+}
+
+.navLink:hover {
+  color: #4338ca;
+}
+
+.activeLink {
+  color: #4338ca;
+  border-bottom-color: #4338ca;
+}
+
+/* ⚡ BREAKPOINT: Triggers when the display shrinks below 850px */
+@media (max-width: 850px) {
+  .menuToggle {
+    display: block; /* Reveal the burger menu button */
+  }
+
+  /* Transforms the link container into a vertical dropdown shelf */
+  .linkContainer {
+    display: none; /* Hide container unless explicit menu state overrides it */
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    border-bottom: 2px solid #e2e8f0;
+    padding: 20px 0;
+    gap: 16px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Utility class added via state whenever the burger button is tapped */
+  .mobileOpen {
+    display: flex !important;
+  }
+
+  .navLink {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 1.05rem;
+  }
+
+  .activeLink {
+    border-bottom-color: transparent;
+    color: #4338ca;
+    background-color: #f8fafc;
+    font-weight: 700;
+  }
+}

@@ -1,0 +1,294 @@
+/* src/app/roadmaps/page.module.css */
+.pageWrapper {
+  min-height: calc(100vh - 70px);
+  background-color: #f8fafc;
+  padding: 40px 20px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.title {
+  font-size: 2.5rem;
+  color: #1e3a8a;
+  margin-bottom: 12px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #475569;
+}
+
+/* Tabs for selecting Roadmap */
+.tabContainer {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.tab {
+  padding: 12px 24px;
+  background: white;
+  border: 1px solid #cbd5e1;
+  border-radius: 30px;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tab:hover {
+  border-color: #4338ca;
+  color: #4338ca;
+}
+
+.activeTab {
+  background: #1e3a8a;
+  color: white;
+  border-color: #1e3a8a;
+}
+
+.activeTab:hover {
+  color: white;
+}
+
+/* Progress Bar */
+.progressContainer {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 32px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.progressHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-weight: 700;
+  color: #1e3a8a;
+}
+
+.progressBarTrack {
+  height: 12px;
+  background: #e2e8f0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progressBarFill {
+  height: 100%;
+  background: #4338ca;
+  transition: width 0.4s ease;
+}
+
+/* Module Cards */
+.moduleCard {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 20px;
+  transition: border-color 0.2s;
+}
+
+.moduleTitle {
+  font-size: 1.25rem;
+  color: #1e3a8a;
+  margin: 0 0 16px 0;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 16px;
+}
+
+.stepNumber {
+  background: #eef2ff;
+  color: #4338ca;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 0.9rem;
+}
+
+/* Task Layout with Links */
+.taskList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.taskItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 8px;
+  background: #f8fafc;
+  cursor: pointer;
+  transition: background 0.2s;
+  border: 1px solid transparent;
+}
+
+.taskItem:hover {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.taskItem input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: #10b981; 
+  cursor: pointer;
+  margin-top: 2px;
+}
+
+.taskContent {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.taskHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.taskText {
+  font-size: 1.05rem;
+  color: #334155;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.taskCompleted {
+  text-decoration: line-through;
+  color: #94a3b8;
+}
+
+.resourceLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #4338ca;
+  background-color: #eef2ff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.2s;
+  margin-top: 8px;
+  align-self: flex-start; /* Keeps button compact */
+}
+
+.resourceLink:hover {
+  background-color: #4338ca;
+  color: #ffffff;
+}
+
+/* 🏆 CAPSTONE CHALLENGE STYLES */
+.capstoneWrapper {
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 2px dashed #cbd5e1;
+}
+
+.capstoneCard {
+  background: linear-gradient(135deg, #1e3a8a 0%, #312e81 100%);
+  color: white;
+  border-radius: 12px;
+  padding: 32px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(30, 58, 138, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.capstoneLocked {
+  background: #f1f5f9;
+  color: #64748b;
+  border: 1px solid #e2e8f0;
+  box-shadow: none;
+}
+
+.capstoneTitle {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 0 0 12px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.capstoneLocked .capstoneTitle {
+  color: #475569;
+}
+
+.capstoneDesc {
+  font-size: 1.05rem;
+  color: #e0e7ff;
+  margin-bottom: 24px;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.capstoneLocked .capstoneDesc {
+  color: #64748b;
+}
+
+.capstoneBtn {
+  background: white;
+  color: #1e3a8a;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.2s;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.capstoneBtn:hover {
+  transform: translateY(-2px);
+}
+
+.lockIcon {
+  margin-bottom: 16px;
+  color: #94a3b8;
+}
+
+.lockMessage {
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #94a3b8;
+}
