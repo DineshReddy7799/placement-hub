@@ -1,42 +1,87 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+// src/components/Navbar/Navbar.tsx
+"use client";
 
-// 1. Import your custom Navbar component
-import Navbar from "@/components/Navbar/Navbar";
-// 2. Import the Auth Provider to wrap the app
-import { AuthProvider } from "@/context/AuthContext";
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import styles from "./Navbar.module.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+export default function Navbar() {
+  const pathname = usePathname();
+  const [isOpen, setIsOpen] = useState(false);
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+  // Automatically shut the mobile slider menu drawer whenever the current route paths swap
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
 
-// 3. Updated SEO metadata for your platform
-export const metadata: Metadata = {
-  title: "PlacementHub | Campus Jobs & Study Materials",
-  description: "Latest job openings, internships, and premium study resources for engineering graduates.",
-};
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body>
-        {/* 4. Wrap the Navbar and Children inside the AuthProvider */}
-        <AuthProvider>
-          <Navbar />
-          {children}
-        </AuthProvider>
-      </body>
-    </html>
+    <nav className={styles.navbar}>
+      <Link href="/" className={styles.logoArea}>
+        PlacementHub
+      </Link>
+
+      {/* Responsive Hamburger Toggle Button */}
+      <button 
+        className={styles.menuToggle} 
+        onClick={() => setIsOpen(!isOpen)}
+        aria-label="Toggle Navigation Menu"
+      >
+        {isOpen ? (
+          // Close Icon (X)
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        ) : (
+          // Hamburger Menu Icon
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        )}
+      </button>
+
+      {/* Links Layout Shelf */}
+      <div className={`${styles.linkContainer} ${isOpen ? styles.mobileOpen : ""}`}>
+        <Link 
+          href="/" 
+          className={`${styles.navLink} ${pathname === "/" ? styles.activeLink : ""}`}
+        >
+          Latest Jobs
+        </Link>
+        <Link 
+          href="/materials" 
+          className={`${styles.navLink} ${pathname?.includes("/materials") ? styles.activeLink : ""}`}
+        >
+          Materials
+        </Link>
+        <Link 
+          href="/roadmaps" 
+          className={`${styles.navLink} ${pathname?.includes("/roadmaps") ? styles.activeLink : ""}`}
+        >
+          Roadmaps
+        </Link>
+        <Link 
+          href="/dsa" 
+          className={`${styles.navLink} ${pathname?.includes("/dsa") ? styles.activeLink : ""}`}
+        >
+          DSA Prep
+        </Link>
+        <Link 
+          href="/about" 
+          className={`${styles.navLink} ${pathname === "/about" ? styles.activeLink : ""}`}
+        >
+          About
+        </Link>
+        <Link 
+          href="/contact" 
+          className={`${styles.navLink} ${pathname === "/contact" ? styles.activeLink : ""}`}
+        >
+          Contact
+        </Link>
+      </div>
+    </nav>
   );
 }
