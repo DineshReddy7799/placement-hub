@@ -1,87 +1,36 @@
-// src/components/Navbar/Navbar.tsx
-"use client";
+// src/app/layout.tsx
+import type { Metadata } from "next";
+import Script from "next/script";
+import Navbar from "../components/Navbar/Navbar"; 
+import { AuthProvider } from "../context/AuthContext";
+import "./globals.css";
 
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import styles from "./Navbar.module.css";
+export const metadata: Metadata = {
+  title: "PlacementHub - Your All-in-One Placement Companion",
+  description: "Centralized off-campus drive listings, curated study materials, and trackers.",
+};
 
-export default function Navbar() {
-  const pathname = usePathname();
-  const [isOpen, setIsOpen] = useState(false);
-
-  // Automatically shut the mobile slider menu drawer whenever the current route paths swap
-  useEffect(() => {
-    setIsOpen(false);
-  }, [pathname]);
-
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <nav className={styles.navbar}>
-      <Link href="/" className={styles.logoArea}>
-        PlacementHub
-      </Link>
-
-      {/* Responsive Hamburger Toggle Button */}
-      <button 
-        className={styles.menuToggle} 
-        onClick={() => setIsOpen(!isOpen)}
-        aria-label="Toggle Navigation Menu"
-      >
-        {isOpen ? (
-          // Close Icon (X)
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        ) : (
-          // Hamburger Menu Icon
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
-        )}
-      </button>
-
-      {/* Links Layout Shelf */}
-      <div className={`${styles.linkContainer} ${isOpen ? styles.mobileOpen : ""}`}>
-        <Link 
-          href="/" 
-          className={`${styles.navLink} ${pathname === "/" ? styles.activeLink : ""}`}
-        >
-          Latest Jobs
-        </Link>
-        <Link 
-          href="/materials" 
-          className={`${styles.navLink} ${pathname?.includes("/materials") ? styles.activeLink : ""}`}
-        >
-          Materials
-        </Link>
-        <Link 
-          href="/roadmaps" 
-          className={`${styles.navLink} ${pathname?.includes("/roadmaps") ? styles.activeLink : ""}`}
-        >
-          Roadmaps
-        </Link>
-        <Link 
-          href="/dsa" 
-          className={`${styles.navLink} ${pathname?.includes("/dsa") ? styles.activeLink : ""}`}
-        >
-          DSA Prep
-        </Link>
-        <Link 
-          href="/about" 
-          className={`${styles.navLink} ${pathname === "/about" ? styles.activeLink : ""}`}
-        >
-          About
-        </Link>
-        <Link 
-          href="/contact" 
-          className={`${styles.navLink} ${pathname === "/contact" ? styles.activeLink : ""}`}
-        >
-          Contact
-        </Link>
-      </div>
-    </nav>
+    <html lang="en">
+      <body>
+        {/* 💰 Live Google AdSense Auto-Ads Script (Moved to Body for Next.js Compliance) */}
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8205637704400457"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+        
+        <AuthProvider>
+          <Navbar />
+          {children}
+        </AuthProvider>
+      </body>
+    </html>
   );
 }
