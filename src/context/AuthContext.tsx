@@ -1,40 +1,31 @@
 // src/context/AuthContext.tsx
 "use client";
 
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState, ReactNode } from "react";
 import { onAuthStateChanged, User } from "firebase/auth";
-import { auth } from "@/lib/firebase";
+import { getAuth } from "firebase/auth";
+import { app } from "@/lib/firebase"; // Make sure getAuth is initialized cleanly if needed
 
-// Define what our context will expose to the app
-interface AuthContextType {
-  user: User | null;
-  loading: boolean;
-}
+const auth = getAuth(app);
+const AuthContext = createContext<{ user: User | null; loading: boolean }>({ user: null, loading: true });
 
-const AuthContext = createContext<AuthContextType>({ user: null, loading: true });
-
-export function AuthProvider({ children }: { children: React.ReactNode }) {
+export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Listen for Firebase login/logout events
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
     });
-
-    // Cleanup the listener when the component unmounts
     return () => unsubscribe();
   }, []);
 
   return (
     <AuthContext.Provider value={{ user, loading }}>
-      {/* Do not render the app until we know if the user is logged in or not */}
       {!loading && children}
     </AuthContext.Provider>
   );
 }
 
-// Custom hook to easily grab the user anywhere in the app
 export const useAuth = () => useContext(AuthContext);
